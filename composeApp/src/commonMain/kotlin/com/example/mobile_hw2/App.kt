@@ -31,7 +31,7 @@ fun App() {
                 WelcomeScreen(onToLogin = { navController.navigate("login") })
             }
             composable("login") {
-                LoginScreen(onBack = { navController.navigateUp() })
+                LoginScreen()
             }
         }
 
