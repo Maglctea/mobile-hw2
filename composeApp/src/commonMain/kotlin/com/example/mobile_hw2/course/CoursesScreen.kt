@@ -1,5 +1,6 @@
 package com.example.mobile_hw2.course
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -19,11 +20,13 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
+import coil3.compose.AsyncImage
 import mobilehw2.composeapp.generated.resources.Res
 import mobilehw2.composeapp.generated.resources.courses_course_item_text
 import mobilehw2.composeapp.generated.resources.courses_empty
@@ -90,27 +93,45 @@ fun CoursesScreen(
 
 @Composable
 private fun CourseItem(course: CourseDto) {
+    val hasBackground = course.background_image != null
+    val textColor = if (hasBackground) Color.White else Color.Unspecified
+
     Card(modifier = Modifier.fillMaxWidth()) {
-        Column(modifier = Modifier.padding(16.dp)) {
-            Text(text = course.title, fontSize = 16.sp)
-            if (course.description.isNotEmpty()) {
-                Text(
-                    text = course.description,
-                    fontSize = 13.sp,
-                    modifier = Modifier.padding(top = 4.dp),
-                    maxLines = 2
+        Box {
+            if (hasBackground) {
+                AsyncImage(
+                    model = course.background_image.url,
+                    contentDescription = null,
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier.matchParentSize()
+                )
+                Box(
+                    modifier = Modifier
+                        .matchParentSize()
+                        .background(Color.Black.copy(alpha = 0.8f))
                 )
             }
-            course.inner?.let { inner ->
-                Text(
-                    text = "${inner.count_complete_lessons}/${inner.lessons_count} ${
-                        stringResource(
-                            Res.string.courses_course_item_text
-                        )
-                    }",
-                    fontSize = 12.sp,
-                    modifier = Modifier.padding(top = 4.dp)
-                )
+            Column(modifier = Modifier.padding(16.dp)) {
+                Text(text = course.title, fontSize = 16.sp, color = textColor)
+                if (course.description.isNotEmpty()) {
+                    Text(
+                        text = course.description,
+                        fontSize = 13.sp,
+                        color = textColor,
+                        modifier = Modifier.padding(top = 4.dp),
+                        maxLines = 2
+                    )
+                }
+                course.inner?.let { inner ->
+                    Text(
+                        text = "${inner.count_complete_lessons}/${inner.lessons_count} ${
+                            stringResource(Res.string.courses_course_item_text)
+                        }",
+                        fontSize = 12.sp,
+                        color = textColor,
+                        modifier = Modifier.padding(top = 4.dp)
+                    )
+                }
             }
         }
     }
