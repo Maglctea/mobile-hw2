@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="welcome_title">Приветствую в\nKTS metaklass</string>
+    <string name="start_button">Начать работу</string>
+    <string name="logo_placeholder">Лого</string>
+    <string name="login_title">Вход</string>
+    <string name="login_field">Логин</string>
+    <string name="password_field">Пароль</string>
+    <string name="name_placeholder">HardPass123</string>
+    <string name="password_placeholder">HardPass123</string>
+    <string name="login_button">Войти</string>
+    <string name="registration_text">Нет аккаунта?</string>
+    <string name="registration_button">Зарегистрироваться</string>
+</resources>
