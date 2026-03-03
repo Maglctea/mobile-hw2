@@ -18,14 +18,13 @@ import coil3.compose.AsyncImage
 import com.example.mobile_hw2.config.AppConfig
 import mobilehw2.composeapp.generated.resources.Res
 import mobilehw2.composeapp.generated.resources.logo
-import mobilehw2.composeapp.generated.resources.logo_placeholder
-import mobilehw2.composeapp.generated.resources.start_button
+import mobilehw2.composeapp.generated.resources.welcome_logo_placeholder
+import mobilehw2.composeapp.generated.resources.welcome_start_button
 import mobilehw2.composeapp.generated.resources.welcome_title
-import org.jetbrains.compose.resources.InternalResourceApi
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
-@OptIn(InternalResourceApi::class)
+
 @Composable
 fun WelcomeScreen(onToLogin: () -> Unit) {
     Column(
@@ -35,7 +34,7 @@ fun WelcomeScreen(onToLogin: () -> Unit) {
 
         AsyncImage(
             model = AppConfig.WELCOME_ICON_URL,
-            contentDescription = stringResource(Res.string.logo_placeholder),
+            contentDescription = stringResource(Res.string.welcome_logo_placeholder),
             placeholder = painterResource(Res.drawable.logo)
         )
         Text(
@@ -53,7 +52,7 @@ fun WelcomeScreen(onToLogin: () -> Unit) {
                 .padding(horizontal = 32.dp)
         ) {
             Text(
-                stringResource(Res.string.start_button),
+                stringResource(Res.string.welcome_start_button),
                 fontSize = 24.sp
             )
 

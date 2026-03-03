@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="welcome_title">Приветствую в\nKTS metaklass</string>
-    <string name="start_button">Начать работу</string>
-    <string name="logo_placeholder">Лого</string>
-    <string name="login_title">Вход</string>
-    <string name="login_field">Логин</string>
-    <string name="password_field">Пароль</string>
-    <string name="name_placeholder">HardPass123</string>
-    <string name="password_placeholder">HardPass123</string>
-    <string name="login_button">Войти</string>
-    <string name="registration_text">Нет аккаунта?</string>
-    <string name="registration_button">Зарегистрироваться</string>
+    <string name="welcome_start_button">Начать работу</string>
+    <string name="welcome_logo_placeholder">Лого</string>
+    <string name="auth_login_title">Вход</string>
+    <string name="auth_login_field">email</string>
+    <string name="auth_password_field">Пароль</string>
+    <string name="auth_email_placeholder">kts@gmail.com</string>
+    <string name="auth_password_placeholder">HardPass123</string>
+    <string name="auth_login_button">Войти</string>
+    <string name="auth_registration_text">Нет аккаунта?</string>
+    <string name="auth_registration_button">Зарегистрироваться</string>
+    <string name="courses_title">Мои курсы</string>
+    <string name="courses_empty">Нет доступных курсов</string>
+    <string name="courses_retry">Повторить</string>
+    <string name="auth_error_empty_credentials">Введите email и пароль</string>
+    <string name="auth_error_unknown">Неизвестная ошибка</string>
+    <string name="courses_error_unknown">Неизвестная ошибка при загрузке курсов</string>
+    <string name="courses_course_item_text">уроков</string>
 </resources>
